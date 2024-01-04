@@ -35,7 +35,7 @@ class DBManager:
         data = self.cur.fetchall()
         self.data = pd.DataFrame(data, columns=columns)
 
-    def get_average_price_for_produt(self):
+    def get_average_price_for_product(self):
         """Вывод средних значений по каждому продукту"""
         unique_products = self.data["product"].unique()
         average_prices = {}

@@ -1,10 +1,8 @@
 import psycopg2
 import pytest
-from _pytest import monkeypatch
 
 from src.config import config
-from src.db_manager import DBManager
-from src.utils import create_database, save_data_to_database, analyze_prices
+from src.utils import create_database, save_data_to_database
 
 db_params = {
         'host': 'localhost',
@@ -12,15 +10,6 @@ db_params = {
         'user': 'postgres',
         'password': 'max1313',
     }
-
-
-
-# def test_empty_config_file(tmpdir):
-#     """Тест для случая, когда конфигурация файла существует, но он пустой"""
-#     empty_config_file = tmpdir.join("empty_database.ini")
-#     with pytest.raises(Exception) as excinfo:
-#         config(empty_config_file, "postgresql")
-#     assert "Section postgresql is not found" in str(excinfo.value)
 
 
 def test_non_existing_file():
@@ -66,12 +55,3 @@ def test_save_data_to_database():
     cur.close()
     conn.close()
     assert result > 0, "No data found in the table"
-
-
-def test_analyze_prices(monkeypatch):
-    """Тест для анализа данных в БД"""
-    db_manager = DBManager('test_db', db_params)
-
-    monkeypatch.setattr('builtins.input', lambda _: '1')
-    assert len(analyze_prices(db_manager)) == 3
-

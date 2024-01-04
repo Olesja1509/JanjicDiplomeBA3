@@ -13,7 +13,7 @@ def analyze_prices(db_manager):
 
         if user_input == '1':
             db_manager.load_data()
-            average_price = db_manager.get_average_price_for_produt()
+            average_price = db_manager.get_average_price_for_product()
             if average_price == {}:
                 print('Отсутствуют данные для отображения')
             print('Средние цены:')
