@@ -13,7 +13,7 @@
 - postgresql
 
 ### Установка и использование.
-1. git clone git@github.com:Olesja1509/Janjic_diplome_BA3.git
+1. git clone git@github.com:Olesja1509/JanjicDiplomeBA3.git
 2. установить зависимости из pyproject.toml
 3. Для работы с базой данных необходимо создать файл database.ini с параметрами доступа к базе данных PostgresSQL. Пример содержимого файла:
 [postgresql]
